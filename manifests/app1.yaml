@@ -40,7 +40,7 @@ spec:
       port: 8080
       protocol: TCP
       targetPort: 8080
-      NodePort: 30367
+      nodePort: 30367
   selector:
     app: devops-argocd-test
   sessionAffinity: None
