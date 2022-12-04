@@ -26,12 +26,13 @@ spec:
             - containerPort: 8080
               name: tcp-8080
               protocol: TCP
-          requests:
-            cpu: 10m
-            memory: 100Mi
-          limits:
-            cpu: 1000m
-            memory: 1000Mi
+          resources:
+            requests:
+              cpu: 10m
+              memory: 100Mi
+            limits:
+              cpu: 1000m
+              memory: 1000Mi
 ---
 apiVersion: v1
 kind: Service
