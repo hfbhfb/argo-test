@@ -47,7 +47,7 @@ spec:
       port: 8080
       protocol: TCP
       targetPort: 8080
-      nodePort: 30367
+      nodePort: 30381
   selector:
     app: devops-argocd-app6
   sessionAffinity: None
