@@ -4,6 +4,7 @@ metadata:
   labels:
     app: {{ .Values.app.name }}
   name: {{ .Values.app.name }}
+  namespace: {{ .Values.global.appNamespace}}
 spec:
   minReadySeconds: 60
   progressDeadlineSeconds: 600
@@ -39,6 +40,7 @@ metadata:
   labels:
     app: {{ .Values.app.name }}
   name: {{ .Values.app.name }}
+  namespace: {{ .Values.global.appNamespace}}
 spec:
   ports:
     - name: tcpaa-8080

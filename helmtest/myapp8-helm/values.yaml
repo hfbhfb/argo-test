@@ -4,3 +4,6 @@ app:
   imageVersion: v1
   nodePort: 30324
   name: myapp8-name
+
+global:
+  appNamespace: default
