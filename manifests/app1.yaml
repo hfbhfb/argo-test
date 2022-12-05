@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: devops-argocd-test
-          image: registry.cn-hangzhou.aliyuncs.com/rookieops/argocd-test-app:v1
+          image: registry.cn-hangzhou.aliyuncs.com/rookieops/argocd-test-app:v2
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
