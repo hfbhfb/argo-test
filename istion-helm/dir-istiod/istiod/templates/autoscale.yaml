@@ -4,7 +4,7 @@ apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: istiod
-  namespace: default
+  namespace: istio-system
   labels:
     app: istiod
     release: release-name

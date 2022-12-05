@@ -5,7 +5,7 @@ apiVersion: networking.istio.io/v1alpha3
 kind: EnvoyFilter
 metadata:
   name: stats-filter-1.14
-  namespace: default
+  namespace: istio-system
   labels:
     istio.io/rev: default
 spec:
@@ -122,7 +122,7 @@ apiVersion: networking.istio.io/v1alpha3
 kind: EnvoyFilter
 metadata:
   name: tcp-stats-filter-1.14
-  namespace: default
+  namespace: istio-system
   labels:
     istio.io/rev: default
 spec:
