@@ -4,8 +4,8 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: 
-  name: 
+    app: myapp8-pro-name
+  name: myapp8-pro-name
   namespace: default
 spec:
   ports:
@@ -15,7 +15,7 @@ spec:
       targetPort: 8080
       nodePort: 30392
   selector:
-    app: 
+    app: myapp8-pro-name
   sessionAffinity: None
   type: NodePort
 ---
@@ -24,8 +24,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: 
-  name: 
+    app: myapp8-pro-name
+  name: myapp8-pro-name
   namespace: default
 spec:
   minReadySeconds: 60
@@ -34,14 +34,14 @@ spec:
   revisionHistoryLimit: 10
   selector:
     matchLabels:
-      app: 
+      app: myapp8-pro-name
   template:
     metadata:
       labels:
-        app: 
+        app: myapp8-pro-name
     spec:
       containers:
-        - name: 
+        - name: myapp8-pro-name
           image:  registry.cn-hangzhou.aliyuncs.com/rookieops/argocd-test-app:v1
           imagePullPolicy: Always
           ports:

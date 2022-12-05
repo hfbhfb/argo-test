@@ -3,3 +3,4 @@ app:
   image: registry.cn-hangzhou.aliyuncs.com/rookieops/argocd-test-app
   imageVersion: v1
   nodePort: 30324
+  name: myapp8-name
