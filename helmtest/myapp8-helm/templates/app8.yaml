@@ -4,7 +4,6 @@ metadata:
   labels:
     app: {{ .Values.app.name }}
   name: {{ .Values.app.name }}
-  namespace: default
 spec:
   minReadySeconds: 60
   progressDeadlineSeconds: 600
@@ -24,7 +23,7 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
-              name: tcp-8080
+              name: tcpaa-8080
               protocol: TCP
           resources:
             requests:
@@ -40,10 +39,9 @@ metadata:
   labels:
     app: {{ .Values.app.name }}
   name: {{ .Values.app.name }}
-  namespace: default
 spec:
   ports:
-    - name: tcp-8080
+    - name: tcpaa-8080
       port: 8080
       protocol: TCP
       targetPort: 8080

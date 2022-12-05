@@ -6,10 +6,9 @@ metadata:
   labels:
     app: myapp8-pro-name
   name: myapp8-pro-name
-  namespace: default
 spec:
   ports:
-    - name: tcp-8080
+    - name: tcpaa-8080
       port: 8080
       protocol: TCP
       targetPort: 8080
@@ -26,7 +25,6 @@ metadata:
   labels:
     app: myapp8-pro-name
   name: myapp8-pro-name
-  namespace: default
 spec:
   minReadySeconds: 60
   progressDeadlineSeconds: 600
@@ -46,7 +44,7 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
-              name: tcp-8080
+              name: tcpaa-8080
               protocol: TCP
           resources:
             requests:
