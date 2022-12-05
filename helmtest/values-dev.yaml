@@ -1,5 +1,5 @@
 app:
-  requestCpu: 16m
+  requestCpu: 11m
   image: registry.cn-hangzhou.aliyuncs.com/rookieops/argocd-test-app
   imageVersion: v2
   nodePort: 30391
