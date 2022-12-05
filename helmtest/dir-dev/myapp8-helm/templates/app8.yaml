@@ -1,0 +1,57 @@
+---
+# Source: myapp8-helm/templates/app8.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: 
+  name: 
+  namespace: default
+spec:
+  ports:
+    - name: tcp-8080
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+      nodePort: 30391
+  selector:
+    app: 
+  sessionAffinity: None
+  type: NodePort
+---
+# Source: myapp8-helm/templates/app8.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: 
+  name: 
+  namespace: default
+spec:
+  minReadySeconds: 60
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: 
+  template:
+    metadata:
+      labels:
+        app: 
+    spec:
+      containers:
+        - name: 
+          image:  registry.cn-hangzhou.aliyuncs.com/rookieops/argocd-test-app:v2
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+              name: tcp-8080
+              protocol: TCP
+          resources:
+            requests:
+              cpu:  16m
+              memory: 100Mi
+            limits:
+              cpu: 1000m
+              memory: 1000Mi

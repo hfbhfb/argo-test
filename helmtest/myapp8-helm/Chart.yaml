@@ -1,0 +1,15 @@
+apiVersion: v1
+name: myapp8-helm
+version: 0.0.1
+appVersion: v0.2.1
+home: "http://baidu.com/aaaa"
+description: myapp8-helm test argo
+icon: ""
+keywords:
+  - myapp8-helm
+  - myapp8-helm-ttt
+deprecated: true
+sources:
+  - https://github.com/hfbhfb
+engine: gotpl
+kubeVersion: ">=1.10.0-0"

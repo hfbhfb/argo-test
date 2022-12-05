@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: {{ .Values.app.name }}
+  name: {{ .Values.app.name }}
+  namespace: default
+spec:
+  minReadySeconds: 60
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: {{ .Values.app.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.app.name }}
+    spec:
+      containers:
+        - name: {{ .Values.app.name }}
+          image:  {{ .Values.app.image }}:{{ .Values.app.imageVersion }}
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+              name: tcp-8080
+              protocol: TCP
+          resources:
+            requests:
+              cpu:  {{ .Values.app.requestCpu }}
+              memory: 100Mi
+            limits:
+              cpu: 1000m
+              memory: 1000Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: {{ .Values.app.name }}
+  name: {{ .Values.app.name }}
+  namespace: default
+spec:
+  ports:
+    - name: tcp-8080
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+      nodePort: {{ .Values.app.nodePort }}
+  selector:
+    app: {{ .Values.app.name }}
+  sessionAffinity: None
+  type: NodePort
+
+
