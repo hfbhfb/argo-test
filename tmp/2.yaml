@@ -1,0 +1,65 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  annotations:
+    deployment.kubernetes.io/desired-replicas: '1'
+    deployment.kubernetes.io/max-replicas: '2'
+    deployment.kubernetes.io/revision: '3'
+  creationTimestamp: '2022-12-05T01:25:13Z'
+  generation: 1
+  labels:
+    app: devops-argocd-test
+    pod-template-hash: 5d6ffbc5ff
+  name: devops-argocd-test-5d6ffbc5ff
+  namespace: default
+  ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: devops-argocd-test
+      uid: d18eec60-33a6-4420-aa6a-155cd7480970
+  resourceVersion: '4231817'
+  uid: 32c74cb4-c492-4638-b5d1-4caa7f2b34a7
+spec:
+  minReadySeconds: 60
+  replicas: 1
+  selector:
+    matchLabels:
+      app: devops-argocd-test
+      pod-template-hash: 5d6ffbc5ff
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: devops-argocd-test
+        pod-template-hash: 5d6ffbc5ff
+    spec:
+      containers:
+        - image: 'registry.cn-hangzhou.aliyuncs.com/rookieops/argocd-test-app:v2'
+          imagePullPolicy: Always
+          name: devops-argocd-test
+          ports:
+            - containerPort: 8080
+              name: tcp-8080
+              protocol: TCP
+          resources:
+            limits:
+              cpu: '1'
+              memory: 1000Mi
+            requests:
+              cpu: 10m
+              memory: 100Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+status:
+  availableReplicas: 1
+  fullyLabeledReplicas: 1
+  observedGeneration: 1
+  readyReplicas: 1
+  replicas: 1
