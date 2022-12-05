@@ -28,7 +28,7 @@ spec:
               protocol: TCP
           resources:
             requests:
-              cpu: 10m
+              cpu: 11m
               memory: 100Mi
             limits:
               cpu: 1000m
@@ -52,4 +52,5 @@ spec:
     app: devops-argocd-app6
   sessionAffinity: None
   type: NodePort
+
 
