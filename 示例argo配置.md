@@ -46,7 +46,7 @@ metadata:
 spec:
   destination:
     name: ''
-    namespace: ''
+    namespace: 'istio-system'
     server: 'https://kubernetes.default.svc'
   source:
     path: istion-helm/dir-istiod
