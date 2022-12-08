@@ -9,6 +9,12 @@ image:
   tag: 2.2.0
   pullPolicy: IfNotPresent
 
+dbimage:
+  repository: postgres
+  tag: 9.5
+  pullPolicy: IfNotPresent
+
+
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""

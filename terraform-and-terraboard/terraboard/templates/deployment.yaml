@@ -56,7 +56,7 @@ spec:
             - name: TERRABOARD_SWAGGER_PORT
               value: {{ .Values.swagger.service.targetPort | quote }}
             - name: DB_HOST
-              value: {{ .Values.db.host }}
+              value: {{ include "terraboard.fullname" . }}-db
             - name: DB_SSLMODE
               value: {{ .Values.db.sslmode }}
             - name: DB_NAME

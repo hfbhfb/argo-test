@@ -1,0 +1,30 @@
+---
+# Source: terraboard/templates/db-stateful.yaml
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: release-name-terraboard-db
+  labels:
+    app.kubernetes.io/name: terraboard-db
+    app.kubernetes.io/instance: release-name
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+        - name: terraboard-db
+          image: "postgres:9.5"
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: POSTGRES_DB
+              value: "db1"
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: release-name-terraboard
+                  key: DB_USER
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: release-name-terraboard
+                  key: DB_PASSWORD

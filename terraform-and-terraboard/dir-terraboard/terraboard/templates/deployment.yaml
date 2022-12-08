@@ -46,7 +46,7 @@ spec:
             - name: TERRABOARD_SWAGGER_PORT
               value: "8081"
             - name: DB_HOST
-              value: 
+              value: release-name-terraboard-db
             - name: DB_SSLMODE
               value: require
             - name: DB_NAME

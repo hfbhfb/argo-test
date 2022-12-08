@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ include "terraboard.fullname" . }}-db
+  labels:
+    app.kubernetes.io/name: {{ include "terraboard.name" . }}-db
+    app.kubernetes.io/instance: {{ .Release.Name }}
+spec:
+  replicas: 1
+  template:
+    spec:
+    {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+￼   {{- end }}
+      containers:
+        - name: {{ .Chart.Name }}-db
+          image: "{{ .Values.dbimage.repository }}:{{ .Values.dbimage.tag }}"
+          imagePullPolicy: {{ .Values.dbimage.pullPolicy }}
+          env:
+            - name: POSTGRES_DB
+              value: "db1"
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "terraboard.fullname" . }}
+                  key: DB_USER
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "terraboard.fullname" . }}
+                  key: DB_PASSWORD
