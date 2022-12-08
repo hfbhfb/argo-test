@@ -130,7 +130,7 @@ aws:
 
 db:
   host: ""
-  name: ""
+  name: "db1"
   user: ""
   password: ""
   sslmode: "require"
