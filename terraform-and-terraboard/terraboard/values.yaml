@@ -133,4 +133,4 @@ db:
   name: "db1"
   user: ""
   password: ""
-  sslmode: ""
+  sslmode: "prefer"

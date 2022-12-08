@@ -48,7 +48,7 @@ spec:
             - name: DB_HOST
               value: release-name-terraboard-db
             - name: DB_SSLMODE
-              value: 
+              value: prefer
             - name: DB_NAME
               value: db1
             - name: DB_USER
