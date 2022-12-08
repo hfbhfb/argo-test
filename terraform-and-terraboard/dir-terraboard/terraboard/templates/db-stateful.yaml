@@ -9,6 +9,7 @@ metadata:
     app.kubernetes.io/instance: release-name
 spec:
   replicas: 1
+  serviceName: headless-terraboard-db
   selector:
     matchLabels:
       app.kubernetes.io/name: terraboard-db

@@ -7,6 +7,7 @@ metadata:
     app.kubernetes.io/instance: {{ .Release.Name }}
 spec:
   replicas: 1
+  serviceName: headless-{{ include "terraboard.name" . }}-db
   selector:
     matchLabels:
       app.kubernetes.io/name: {{ include "terraboard.name" . }}-db
