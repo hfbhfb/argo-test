@@ -5,15 +5,12 @@ metadata:
   labels:
 {{ include "terraboard.labels" . | indent 4 }}
 spec:
-  type: {{ .Values.service.type }}
+  type: ClusterIP
   ports:
-    - port: {{ .Values.service.port }}
-      targetPort: {{ .Values.service.targetPort }}
+    - port: 5432
+      targetPort: 5432
       protocol: TCP
       name: http
-{{- if .Values.service.nodePort }}
-      nodePort:  {{ .Values.service.nodePort }}
-{{- end }}
   selector:
     app.kubernetes.io/name: {{ include "terraboard.name" . }}-db
     app.kubernetes.io/instance: {{ .Release.Name }}
