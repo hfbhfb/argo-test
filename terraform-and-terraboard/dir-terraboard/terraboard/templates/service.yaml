@@ -11,12 +11,13 @@ metadata:
     app.kubernetes.io/version: "2.2.0"
     app.kubernetes.io/managed-by: Helm
 spec:
-  type: ClusterIP
+  type: NodePort
   ports:
     - port: 80
       targetPort: 8080
       protocol: TCP
       name: http
+      nodePort:  30387
   selector:
     app.kubernetes.io/name: terraboard
     app.kubernetes.io/instance: release-name

@@ -2,3 +2,9 @@
 db:
   user: "myuserAAA"
   password: "mypasswdAAA"
+
+
+service:
+  type: NodePort
+  nodePort: 30387
+
