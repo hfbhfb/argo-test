@@ -1,0 +1,21 @@
+---
+# Source: grafana/templates/tests/test-rolebinding.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: mygrafana-test
+  namespace: monitoring
+  labels:
+    helm.sh/chart: grafana-6.38.0
+    app.kubernetes.io/name: grafana
+    app.kubernetes.io/instance: mygrafana
+    app.kubernetes.io/version: "9.1.4"
+    app.kubernetes.io/managed-by: Helm
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: mygrafana-test
+subjects:
+- kind: ServiceAccount
+  name: mygrafana-test
+  namespace: monitoring

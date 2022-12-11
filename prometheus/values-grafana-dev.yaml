@@ -1,0 +1,9 @@
+persistence:
+  type: pvc
+  enabled: true
+  storageClassName: "nfs-client"
+service:
+  type: NodePort
+  nodePort: 30344
+# 固定密码
+adminPassword: admin

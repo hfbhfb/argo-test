@@ -1,0 +1,17 @@
+alertmanager:
+  persistentVolume:
+    storageClass: "nfs-client"
+  service:
+    nodePort: 30359
+    type: NodePort
+server:
+  persistentVolume:
+    storageClass: "nfs-client"
+  service:
+    servicePort: 9090
+    nodePort: 30343
+    type: NodePort
+kube-state-metrics:
+  image:
+    repository: bitnami/kube-state-metrics
+    tag: 2.4.1

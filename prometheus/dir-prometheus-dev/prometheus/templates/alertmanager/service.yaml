@@ -1,0 +1,26 @@
+---
+# Source: prometheus/templates/alertmanager/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    component: "alertmanager"
+    app: prometheus
+    release: myprometheus
+    chart: prometheus-15.10.0
+    heritage: Helm
+  name: myprometheus-alertmanager
+  namespace: monitoring
+spec:
+  ports:
+    - name: http
+      port: 80
+      protocol: TCP
+      targetPort: 9093
+      nodePort: 30359
+  selector:
+    component: "alertmanager"
+    app: prometheus
+    release: myprometheus
+  sessionAffinity: None
+  type: "NodePort"

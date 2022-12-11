@@ -1,0 +1,26 @@
+---
+# Source: prometheus/templates/server/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    component: "server"
+    app: prometheus
+    release: myprometheus
+    chart: prometheus-15.10.0
+    heritage: Helm
+  name: myprometheus-server
+  namespace: monitoring
+spec:
+  ports:
+    - name: http
+      port: 9090
+      protocol: TCP
+      targetPort: 9090
+      nodePort: 30343
+  selector:
+    component: "server"
+    app: prometheus
+    release: myprometheus
+  sessionAffinity: None
+  type: "NodePort"
