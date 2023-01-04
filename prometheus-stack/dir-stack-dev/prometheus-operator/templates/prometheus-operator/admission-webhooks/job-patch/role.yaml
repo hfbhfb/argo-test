@@ -1,0 +1,23 @@
+---
+# Source: prometheus-operator/templates/prometheus-operator/admission-webhooks/job-patch/role.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name:  mystack-prometheus-operato-admission
+  namespace: monitoring
+  annotations:
+    "helm.sh/hook": pre-install,pre-upgrade,post-install,post-upgrade
+    "helm.sh/hook-delete-policy": before-hook-creation,hook-succeeded
+  labels:
+    app: prometheus-operator-admission    
+    chart: prometheus-operator-9.3.2
+    release: "mystack"
+    heritage: "Helm"
+rules:
+  - apiGroups:
+      - ""
+    resources:
+      - secrets
+    verbs:
+      - get
+      - create

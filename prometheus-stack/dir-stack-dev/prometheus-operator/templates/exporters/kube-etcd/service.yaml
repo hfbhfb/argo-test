@@ -1,0 +1,24 @@
+---
+# Source: prometheus-operator/templates/exporters/kube-etcd/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: mystack-prometheus-operato-kube-etcd
+  labels:
+    app: prometheus-operator-kube-etcd
+    jobLabel: kube-etcd
+    
+    chart: prometheus-operator-9.3.2
+    release: "mystack"
+    heritage: "Helm"
+  namespace: kube-system
+spec:
+  clusterIP: None
+  ports:
+    - name: http-metrics
+      port: 2379
+      protocol: TCP
+      targetPort: 2379
+  selector:
+    component: etcd
+  type: ClusterIP

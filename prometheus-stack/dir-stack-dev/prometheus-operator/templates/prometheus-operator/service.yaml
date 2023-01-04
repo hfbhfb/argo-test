@@ -1,0 +1,25 @@
+---
+# Source: prometheus-operator/templates/prometheus-operator/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: mystack-prometheus-operato-operator
+  namespace: monitoring
+  labels:
+    app: prometheus-operator-operator
+    
+    chart: prometheus-operator-9.3.2
+    release: "mystack"
+    heritage: "Helm"
+spec:
+  ports:
+  - name: http
+    port: 8080
+    targetPort: http
+  - name: https
+    port: 443
+    targetPort: https
+  selector:
+    app: prometheus-operator-operator
+    release: "mystack"
+  type: "ClusterIP"

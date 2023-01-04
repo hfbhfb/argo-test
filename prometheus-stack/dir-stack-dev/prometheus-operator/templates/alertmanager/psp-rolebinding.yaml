@@ -1,0 +1,21 @@
+---
+# Source: prometheus-operator/templates/alertmanager/psp-rolebinding.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: mystack-prometheus-operato-alertmanager
+  namespace: monitoring
+  labels:
+    app: prometheus-operator-alertmanager
+    
+    chart: prometheus-operator-9.3.2
+    release: "mystack"
+    heritage: "Helm"
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: mystack-prometheus-operato-alertmanager
+subjects:
+  - kind: ServiceAccount
+    name: mystack-prometheus-operato-alertmanager
+    namespace: monitoring

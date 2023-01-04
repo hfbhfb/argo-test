@@ -1,0 +1,24 @@
+---
+# Source: prometheus-operator/templates/prometheus-operator/servicemonitor.yaml
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: mystack-prometheus-operato-operator
+  namespace: monitoring
+  labels:
+    app: prometheus-operator-operator
+    
+    chart: prometheus-operator-9.3.2
+    release: "mystack"
+    heritage: "Helm"
+spec:
+  endpoints:
+  - port: http
+    honorLabels: true
+  selector:
+    matchLabels:
+      app: prometheus-operator-operator
+      release: "mystack"
+  namespaceSelector:
+    matchNames:
+      - "monitoring"

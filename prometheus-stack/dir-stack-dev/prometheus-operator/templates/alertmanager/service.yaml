@@ -1,0 +1,24 @@
+---
+# Source: prometheus-operator/templates/alertmanager/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: mystack-prometheus-operato-alertmanager
+  namespace: monitoring
+  labels:
+    app: prometheus-operator-alertmanager
+    self-monitor: "true"
+    
+    chart: prometheus-operator-9.3.2
+    release: "mystack"
+    heritage: "Helm"
+spec:
+  ports:
+    - name: web
+      port: 9093
+      targetPort: 9093
+      protocol: TCP
+  selector:
+    app: alertmanager
+    alertmanager: mystack-prometheus-operato-alertmanager
+  type: "ClusterIP"

@@ -1,0 +1,55 @@
+---
+# Source: prometheus-operator/templates/prometheus/prometheus.yaml
+apiVersion: monitoring.coreos.com/v1
+kind: Prometheus
+metadata:
+  name: mystack-prometheus-operato-prometheus
+  namespace: monitoring
+  labels:
+    app: prometheus-operator-prometheus
+    
+    chart: prometheus-operator-9.3.2
+    release: "mystack"
+    heritage: "Helm"
+spec:
+  alerting:
+    alertmanagers:
+      - namespace: monitoring
+        name: mystack-prometheus-operato-alertmanager
+        port: web
+        pathPrefix: "/"
+        apiVersion: v2
+  baseImage: quay.io/prometheus/prometheus
+  version: v2.18.2
+  externalUrl: http://mystack-prometheus-operato-prometheus.monitoring:9090
+  paused: false
+  replicas: 1
+  logLevel:  info
+  logFormat:  logfmt
+  listenLocal: false
+  enableAdminAPI: false
+  retention: "10d"
+  routePrefix: "/"
+  serviceAccountName: mystack-prometheus-operato-prometheus
+  serviceMonitorSelector:
+    matchLabels:
+      release: "mystack"
+
+  serviceMonitorNamespaceSelector: {}
+  podMonitorSelector:
+    matchLabels:
+      release: "mystack"
+
+  podMonitorNamespaceSelector: {}
+  securityContext:
+    fsGroup: 2000
+    runAsGroup: 2000
+    runAsNonRoot: true
+    runAsUser: 1000
+  ruleNamespaceSelector: {}
+  ruleSelector:
+    matchLabels:
+      app: prometheus-operator
+      release: "mystack"
+
+  portName: web

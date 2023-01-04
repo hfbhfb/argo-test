@@ -1,0 +1,21 @@
+---
+# Source: prometheus-operator/charts/grafana/templates/tests/test-rolebinding.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: mystack-grafana-test
+  namespace: monitoring
+  labels:
+    helm.sh/chart: grafana-5.3.6
+    app.kubernetes.io/name: grafana
+    app.kubernetes.io/instance: mystack
+    app.kubernetes.io/version: "7.0.5"
+    app.kubernetes.io/managed-by: Helm
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: mystack-grafana-test
+subjects:
+- kind: ServiceAccount
+  name: mystack-grafana-test
+  namespace: monitoring
