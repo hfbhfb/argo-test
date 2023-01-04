@@ -1,0 +1,7 @@
+prometheusOperator:
+  admissionWebhooks:
+    patch:
+      image:
+        registry: jettech
+        repository: kube-webhook-certgen
+        tag: v1.3.0
