@@ -3,7 +3,8 @@ all: mystack
 	@echo all finish
 
 mystack: 
-	helm template prometheus-operator/  --namespace monitoring --name-template mystack --output-dir dir-stack-dev -f values-stack-dev.yaml 
+	helm template kube-prometheus-stack/  --namespace monitoring --name-template mystack --output-dir dir-stack-dev -f values-stack-dev.yaml 
+	cp -Rf kube-prometheus-stack/crds ./dir-stack-dev/kube-prometheus-stack/
 	@echo mystack finish
 
 # mygrafna:

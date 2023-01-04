@@ -1,0 +1,24 @@
+---
+# Source: kube-prometheus-stack/templates/prometheus-operator/clusterrolebinding.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: mystack-kube-prometheus-st-operator
+  labels:
+    app: kube-prometheus-stack-operator
+    
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/instance: mystack
+    app.kubernetes.io/version: "42.3.0"
+    app.kubernetes.io/part-of: kube-prometheus-stack
+    chart: kube-prometheus-stack-42.3.0
+    release: "mystack"
+    heritage: "Helm"
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: mystack-kube-prometheus-st-operator
+subjects:
+- kind: ServiceAccount
+  name: mystack-kube-prometheus-st-operator
+  namespace: monitoring

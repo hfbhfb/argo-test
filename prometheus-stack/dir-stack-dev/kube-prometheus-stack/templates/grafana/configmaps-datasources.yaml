@@ -1,0 +1,30 @@
+---
+# Source: kube-prometheus-stack/templates/grafana/configmaps-datasources.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mystack-kube-prometheus-st-grafana-datasource
+  namespace: monitoring
+  labels:
+    grafana_datasource: "1"
+    app: kube-prometheus-stack-grafana
+    
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/instance: mystack
+    app.kubernetes.io/version: "42.3.0"
+    app.kubernetes.io/part-of: kube-prometheus-stack
+    chart: kube-prometheus-stack-42.3.0
+    release: "mystack"
+    heritage: "Helm"
+data:
+  datasource.yaml: |-
+    apiVersion: 1
+    datasources:
+    - name: Prometheus
+      type: prometheus
+      uid: prometheus
+      url: http://mystack-kube-prometheus-st-prometheus.monitoring:9090/
+      access: proxy
+      isDefault: true
+      jsonData:
+        timeInterval: 30s
