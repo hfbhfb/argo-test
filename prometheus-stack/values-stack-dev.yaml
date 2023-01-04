@@ -5,3 +5,11 @@ prometheusOperator:
         registry: jettech
         repository: kube-webhook-certgen
         tag: v1.3.0
+
+kube-state-metrics:
+  image:
+    repository: bitnami/kube-state-metrics
+    tag: 2.7.0
+    sha: ""
+    pullPolicy: IfNotPresent
+
