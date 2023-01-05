@@ -1,0 +1,1786 @@
+
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"argoproj.io/v1alpha1","kind":"Application","metadata":{"annotations":{},"name":"app1","namespace":"argocd"},"spec":{"destination":{"server":"https://kubernetes.default.svc"},"project":"default","source":{"path":"manifests/","repoURL":"git@github.com:hfbhfb/argo-test","targetRevision":"master"},"syncPolicy":{}}}
+  creationTimestamp: "2022-12-15T06:35:38Z"
+  generation: 9159
+  name: app1
+  namespace: argocd
+  resourceVersion: "11094024"
+  uid: 6332603e-1519-421f-8492-abb3bf24a309
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: manifests/
+    repoURL: git@github.com:hfbhfb/argo-test
+    targetRevision: master
+  syncPolicy: {}
+status:
+  health:
+    status: Healthy
+  reconciledAt: "2023-01-03T09:50:42Z"
+  resources:
+  - health:
+      status: Healthy
+    kind: Service
+    name: devops-argocd-test
+    namespace: default
+    status: Synced
+    version: v1
+  - group: apps
+    health:
+      status: Healthy
+    kind: Deployment
+    name: devops-argocd-test
+    namespace: default
+    status: Synced
+    version: v1
+  sourceType: Directory
+  summary:
+    images:
+    - registry.cn-hangzhou.aliyuncs.com/rookieops/argocd-test-app:v2
+  sync:
+    comparedTo:
+      destination:
+        server: https://kubernetes.default.svc
+      source:
+        path: manifests/
+        repoURL: git@github.com:hfbhfb/argo-test
+        targetRevision: master
+    revision: 730541c35f261875411d35ae3fec6da9b212d023
+    status: Synced
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"argoproj.io/v1alpha1","kind":"Application","metadata":{"annotations":{},"name":"app6","namespace":"argocd"},"spec":{"destination":{"server":"https://192.168.1.81:6443"},"project":"default","source":{"path":"group2/","repoURL":"git@github.com:hfbhfb/argo-test","targetRevision":"master"}}}
+  creationTimestamp: "2022-12-15T06:35:38Z"
+  generation: 9132
+  name: app6
+  namespace: argocd
+  resourceVersion: "11094027"
+  uid: 82332063-6bf7-4188-b0a2-debf7cd5688f
+spec:
+  destination:
+    server: https://192.168.1.81:6443
+  project: default
+  source:
+    path: group2/
+    repoURL: git@github.com:hfbhfb/argo-test
+    targetRevision: master
+status:
+  health:
+    status: Healthy
+  reconciledAt: "2023-01-03T09:50:42Z"
+  resources:
+  - health:
+      status: Healthy
+    kind: Service
+    name: devops-argocd-app6
+    namespace: default
+    status: Synced
+    version: v1
+  - group: apps
+    health:
+      status: Healthy
+    kind: Deployment
+    name: devops-argocd-app6
+    namespace: default
+    status: Synced
+    version: v1
+  sourceType: Directory
+  summary:
+    images:
+    - registry.cn-hangzhou.aliyuncs.com/rookieops/argocd-test-app:v2
+  sync:
+    comparedTo:
+      destination:
+        server: https://192.168.1.81:6443
+      source:
+        path: group2/
+        repoURL: git@github.com:hfbhfb/argo-test
+        targetRevision: master
+    revision: 730541c35f261875411d35ae3fec6da9b212d023
+    status: Synced
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"argoproj.io/v1alpha1","kind":"Application","metadata":{"annotations":{},"name":"app8-dev","namespace":"argocd"},"spec":{"destination":{"namespace":"default","server":"https://kubernetes.default.svc"},"project":"default","source":{"directory":{"jsonnet":{},"recurse":true},"path":"helmtest/dir-dev/","repoURL":"git@github.com:hfbhfb/argo-test","targetRevision":"master"}}}
+  creationTimestamp: "2022-12-15T06:35:38Z"
+  generation: 9147
+  name: app8-dev
+  namespace: argocd
+  resourceVersion: "11094025"
+  uid: 75d0c4f8-8f0b-46e7-b82f-6fef6a38c424
+spec:
+  destination:
+    namespace: default
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    directory:
+      jsonnet: {}
+      recurse: true
+    path: helmtest/dir-dev/
+    repoURL: git@github.com:hfbhfb/argo-test
+    targetRevision: master
+status:
+  health:
+    status: Healthy
+  reconciledAt: "2023-01-03T09:50:42Z"
+  resources:
+  - health:
+      status: Healthy
+    kind: Service
+    name: myapp8-dev-name
+    namespace: default
+    status: Synced
+    version: v1
+  - group: apps
+    health:
+      status: Healthy
+    kind: Deployment
+    name: myapp8-dev-name
+    namespace: default
+    status: Synced
+    version: v1
+  sourceType: Directory
+  summary:
+    images:
+    - registry.cn-hangzhou.aliyuncs.com/rookieops/argocd-test-app:v2
+  sync:
+    comparedTo:
+      destination:
+        namespace: default
+        server: https://kubernetes.default.svc
+      source:
+        directory:
+          jsonnet: {}
+          recurse: true
+        path: helmtest/dir-dev/
+        repoURL: git@github.com:hfbhfb/argo-test
+        targetRevision: master
+    revision: 730541c35f261875411d35ae3fec6da9b212d023
+    status: Synced
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"argoproj.io/v1alpha1","kind":"Application","metadata":{"annotations":{},"name":"app8-pro","namespace":"argocd"},"spec":{"destination":{"namespace":"default","server":"https://kubernetes.default.svc"},"project":"default","source":{"directory":{"jsonnet":{},"recurse":true},"path":"helmtest/dir-pro","repoURL":"git@github.com:hfbhfb/argo-test","targetRevision":"master"}}}
+  creationTimestamp: "2022-12-15T06:35:38Z"
+  generation: 9146
+  name: app8-pro
+  namespace: argocd
+  resourceVersion: "11094026"
+  uid: 7ee3e0cd-8ed8-4aba-8f7e-65d8c65c55de
+spec:
+  destination:
+    namespace: default
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    directory:
+      jsonnet: {}
+      recurse: true
+    path: helmtest/dir-pro
+    repoURL: git@github.com:hfbhfb/argo-test
+    targetRevision: master
+status:
+  health:
+    status: Healthy
+  reconciledAt: "2023-01-03T09:50:42Z"
+  resources:
+  - health:
+      status: Healthy
+    kind: Service
+    name: myapp8-pro-name
+    namespace: default
+    status: Synced
+    version: v1
+  - group: apps
+    health:
+      status: Healthy
+    kind: Deployment
+    name: myapp8-pro-name
+    namespace: default
+    status: Synced
+    version: v1
+  sourceType: Directory
+  summary:
+    images:
+    - registry.cn-hangzhou.aliyuncs.com/rookieops/argocd-test-app:v1
+  sync:
+    comparedTo:
+      destination:
+        namespace: default
+        server: https://kubernetes.default.svc
+      source:
+        directory:
+          jsonnet: {}
+          recurse: true
+        path: helmtest/dir-pro
+        repoURL: git@github.com:hfbhfb/argo-test
+        targetRevision: master
+    revision: 730541c35f261875411d35ae3fec6da9b212d023
+    status: Synced
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"argoproj.io/v1alpha1","kind":"Application","metadata":{"annotations":{},"name":"helm-base","namespace":"argocd"},"spec":{"destination":{"server":"https://kubernetes.default.svc"},"project":"default","source":{"directory":{"jsonnet":{},"recurse":true},"path":"istion-helm/dir-base","repoURL":"git@github.com:hfbhfb/argo-test","targetRevision":"master"}}}
+  creationTimestamp: "2022-12-15T06:35:39Z"
+  generation: 18088
+  name: helm-base
+  namespace: argocd
+  resourceVersion: "11094034"
+  uid: 19124420-b8e6-42ca-830a-224e489ca8fd
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    directory:
+      jsonnet: {}
+      recurse: true
+    path: istion-helm/dir-base
+    repoURL: git@github.com:hfbhfb/argo-test
+    targetRevision: master
+status:
+  conditions:
+  - lastTransitionTime: "2023-01-03T04:45:03Z"
+    message: Resource /ServiceAccount/istio-system/istio-reader-service-account appeared
+      2 times among application resources.
+    type: RepeatedResourceWarning
+  - lastTransitionTime: "2023-01-03T09:50:43Z"
+    message: Resource /ServiceAccount/istio-system/istiod-service-account appeared
+      2 times among application resources.
+    type: RepeatedResourceWarning
+  - lastTransitionTime: "2023-01-03T09:50:43Z"
+    message: Resource admissionregistration.k8s.io/ValidatingWebhookConfiguration//istiod-default-validator
+      appeared 2 times among application resources.
+    type: RepeatedResourceWarning
+  - lastTransitionTime: "2023-01-03T09:50:43Z"
+    message: Resource rbac.authorization.k8s.io/ClusterRole//istio-reader-istio-system
+      appeared 2 times among application resources.
+    type: RepeatedResourceWarning
+  - lastTransitionTime: "2023-01-03T09:50:43Z"
+    message: Resource rbac.authorization.k8s.io/ClusterRole//istiod-istio-system appeared
+      2 times among application resources.
+    type: RepeatedResourceWarning
+  - lastTransitionTime: "2023-01-03T09:50:43Z"
+    message: Resource rbac.authorization.k8s.io/ClusterRoleBinding//istio-reader-istio-system
+      appeared 2 times among application resources.
+    type: RepeatedResourceWarning
+  - lastTransitionTime: "2023-01-03T09:50:43Z"
+    message: Resource rbac.authorization.k8s.io/ClusterRoleBinding//istiod-istio-system
+      appeared 2 times among application resources.
+    type: RepeatedResourceWarning
+  - lastTransitionTime: "2023-01-03T09:50:43Z"
+    message: Resource rbac.authorization.k8s.io/Role/istio-system/istiod-istio-system
+      appeared 2 times among application resources.
+    type: RepeatedResourceWarning
+  - lastTransitionTime: "2023-01-03T09:50:43Z"
+    message: Resource rbac.authorization.k8s.io/RoleBinding/istio-system/istiod-istio-system
+      appeared 2 times among application resources.
+    type: RepeatedResourceWarning
+  health:
+    status: Healthy
+  reconciledAt: "2023-01-03T09:50:43Z"
+  resources:
+  - kind: ServiceAccount
+    name: istio-reader-service-account
+    namespace: istio-system
+    status: Synced
+    version: v1
+  - kind: ServiceAccount
+    name: istiod-service-account
+    namespace: istio-system
+    status: Synced
+    version: v1
+  - group: admissionregistration.k8s.io
+    kind: ValidatingWebhookConfiguration
+    name: istiod-default-validator
+    status: Synced
+    version: v1
+  - group: apiextensions.k8s.io
+    kind: CustomResourceDefinition
+    name: authorizationpolicies.security.istio.io
+    status: Synced
+    version: v1
+  - group: apiextensions.k8s.io
+    kind: CustomResourceDefinition
+    name: destinationrules.networking.istio.io
+    status: Synced
+    version: v1
+  - group: apiextensions.k8s.io
+    kind: CustomResourceDefinition
+    name: envoyfilters.networking.istio.io
+    status: Synced
+    version: v1
+  - group: apiextensions.k8s.io
+    kind: CustomResourceDefinition
+    name: gateways.networking.istio.io
+    status: Synced
+    version: v1
+  - group: apiextensions.k8s.io
+    kind: CustomResourceDefinition
+    name: istiooperators.install.istio.io
+    status: Synced
+    version: v1
+  - group: apiextensions.k8s.io
+    kind: CustomResourceDefinition
+    name: peerauthentications.security.istio.io
+    status: Synced
+    version: v1
+  - group: apiextensions.k8s.io
+    kind: CustomResourceDefinition
+    name: proxyconfigs.networking.istio.io
+    status: Synced
+    version: v1
+  - group: apiextensions.k8s.io
+    kind: CustomResourceDefinition
+    name: requestauthentications.security.istio.io
+    status: Synced
+    version: v1
+  - group: apiextensions.k8s.io
+    kind: CustomResourceDefinition
+    name: serviceentries.networking.istio.io
+    status: Synced
+    version: v1
+  - group: apiextensions.k8s.io
+    kind: CustomResourceDefinition
+    name: sidecars.networking.istio.io
+    status: Synced
+    version: v1
+  - group: apiextensions.k8s.io
+    kind: CustomResourceDefinition
+    name: telemetries.telemetry.istio.io
+    status: Synced
+    version: v1
+  - group: apiextensions.k8s.io
+    kind: CustomResourceDefinition
+    name: virtualservices.networking.istio.io
+    status: Synced
+    version: v1
+  - group: apiextensions.k8s.io
+    kind: CustomResourceDefinition
+    name: wasmplugins.extensions.istio.io
+    status: Synced
+    version: v1
+  - group: apiextensions.k8s.io
+    kind: CustomResourceDefinition
+    name: workloadentries.networking.istio.io
+    status: Synced
+    version: v1
+  - group: apiextensions.k8s.io
+    kind: CustomResourceDefinition
+    name: workloadgroups.networking.istio.io
+    status: Synced
+    version: v1
+  - group: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: istio-reader-istio-system
+    status: Synced
+    version: v1
+  - group: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: istiod-istio-system
+    status: Synced
+    version: v1
+  - group: rbac.authorization.k8s.io
+    kind: ClusterRoleBinding
+    name: istio-reader-istio-system
+    status: Synced
+    version: v1
+  - group: rbac.authorization.k8s.io
+    kind: ClusterRoleBinding
+    name: istiod-istio-system
+    status: Synced
+    version: v1
+  - group: rbac.authorization.k8s.io
+    kind: Role
+    name: istiod-istio-system
+    namespace: istio-system
+    status: Synced
+    version: v1
+  - group: rbac.authorization.k8s.io
+    kind: RoleBinding
+    name: istiod-istio-system
+    namespace: istio-system
+    status: Synced
+    version: v1
+  sourceType: Directory
+  sync:
+    comparedTo:
+      destination:
+        server: https://kubernetes.default.svc
+      source:
+        directory:
+          jsonnet: {}
+          recurse: true
+        path: istion-helm/dir-base
+        repoURL: git@github.com:hfbhfb/argo-test
+        targetRevision: master
+    revision: 730541c35f261875411d35ae3fec6da9b212d023
+    status: Synced
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"argoproj.io/v1alpha1","kind":"Application","metadata":{"annotations":{},"name":"istio-bookinfo","namespace":"argocd"},"spec":{"destination":{"namespace":"bookinfo-ns","server":"https://kubernetes.default.svc"},"project":"default","source":{"directory":{"jsonnet":{},"recurse":true},"path":"istion-bookinfo/","repoURL":"git@github.com:hfbhfb/argo-test","targetRevision":"master"}}}
+  creationTimestamp: "2022-12-15T06:35:39Z"
+  generation: 9170
+  name: istio-bookinfo
+  namespace: argocd
+  resourceVersion: "11094029"
+  uid: 9602e919-ec42-4959-95cf-582663a7851c
+spec:
+  destination:
+    namespace: bookinfo-ns
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    directory:
+      jsonnet: {}
+      recurse: true
+    path: istion-bookinfo/
+    repoURL: git@github.com:hfbhfb/argo-test
+    targetRevision: master
+status:
+  health:
+    status: Healthy
+  reconciledAt: "2023-01-03T09:50:42Z"
+  resources:
+  - health:
+      status: Healthy
+    kind: Service
+    name: details
+    namespace: bookinfo-ns
+    status: Synced
+    version: v1
+  - health:
+      status: Healthy
+    kind: Service
+    name: productpage
+    namespace: bookinfo-ns
+    status: Synced
+    version: v1
+  - health:
+      status: Healthy
+    kind: Service
+    name: ratings
+    namespace: bookinfo-ns
+    status: Synced
+    version: v1
+  - health:
+      status: Healthy
+    kind: Service
+    name: reviews
+    namespace: bookinfo-ns
+    status: Synced
+    version: v1
+  - kind: ServiceAccount
+    name: bookinfo-details
+    namespace: bookinfo-ns
+    status: Synced
+    version: v1
+  - kind: ServiceAccount
+    name: bookinfo-productpage
+    namespace: bookinfo-ns
+    status: Synced
+    version: v1
+  - kind: ServiceAccount
+    name: bookinfo-ratings
+    namespace: bookinfo-ns
+    status: Synced
+    version: v1
+  - kind: ServiceAccount
+    name: bookinfo-reviews
+    namespace: bookinfo-ns
+    status: Synced
+    version: v1
+  - group: apps
+    health:
+      status: Healthy
+    kind: Deployment
+    name: details-v1
+    namespace: bookinfo-ns
+    status: Synced
+    version: v1
+  - group: apps
+    health:
+      status: Healthy
+    kind: Deployment
+    name: productpage-v1
+    namespace: bookinfo-ns
+    status: Synced
+    version: v1
+  - group: apps
+    health:
+      status: Healthy
+    kind: Deployment
+    name: ratings-v1
+    namespace: bookinfo-ns
+    status: Synced
+    version: v1
+  - group: apps
+    health:
+      status: Healthy
+    kind: Deployment
+    name: reviews-v1
+    namespace: bookinfo-ns
+    status: Synced
+    version: v1
+  - group: apps
+    health:
+      status: Healthy
+    kind: Deployment
+    name: reviews-v2
+    namespace: bookinfo-ns
+    status: Synced
+    version: v1
+  - group: apps
+    health:
+      status: Healthy
+    kind: Deployment
+    name: reviews-v3
+    namespace: bookinfo-ns
+    status: Synced
+    version: v1
+  - group: networking.istio.io
+    kind: Gateway
+    name: bookinfo-gateway
+    namespace: bookinfo-ns
+    status: Synced
+    version: v1alpha3
+  - group: networking.istio.io
+    kind: VirtualService
+    name: bookinfo
+    namespace: bookinfo-ns
+    status: Synced
+    version: v1alpha3
+  sourceType: Directory
+  summary:
+    images:
+    - docker.io/istio/examples-bookinfo-details-v1:1.17.0
+    - docker.io/istio/examples-bookinfo-productpage-v1:1.17.0
+    - docker.io/istio/examples-bookinfo-ratings-v1:1.17.0
+    - docker.io/istio/examples-bookinfo-reviews-v1:1.17.0
+    - docker.io/istio/examples-bookinfo-reviews-v2:1.17.0
+    - docker.io/istio/examples-bookinfo-reviews-v3:1.17.0
+    - docker.io/istio/proxyv2:1.15.3
+  sync:
+    comparedTo:
+      destination:
+        namespace: bookinfo-ns
+        server: https://kubernetes.default.svc
+      source:
+        directory:
+          jsonnet: {}
+          recurse: true
+        path: istion-bookinfo/
+        repoURL: git@github.com:hfbhfb/argo-test
+        targetRevision: master
+    revision: 730541c35f261875411d35ae3fec6da9b212d023
+    status: Synced
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"argoproj.io/v1alpha1","kind":"Application","metadata":{"annotations":{},"name":"istio-istiod","namespace":"argocd"},"spec":{"destination":{"namespace":"istio-system","server":"https://kubernetes.default.svc"},"project":"default","source":{"directory":{"jsonnet":{},"recurse":true},"path":"istion-helm/dir-istiod","repoURL":"git@github.com:hfbhfb/argo-test","targetRevision":"master"}}}
+  creationTimestamp: "2022-12-15T06:35:39Z"
+  generation: 145361
+  name: istio-istiod
+  namespace: argocd
+  resourceVersion: "11094454"
+  uid: 3bb6375f-9854-483a-a738-0f78ce557e97
+spec:
+  destination:
+    namespace: istio-system
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    directory:
+      jsonnet: {}
+      recurse: true
+    path: istion-helm/dir-istiod
+    repoURL: git@github.com:hfbhfb/argo-test
+    targetRevision: master
+status:
+  conditions:
+  - lastTransitionTime: "2023-01-03T04:45:05Z"
+    message: Resource /ConfigMap/istio-system/istio appeared 2 times among application
+      resources.
+    type: RepeatedResourceWarning
+  - lastTransitionTime: "2023-01-03T09:52:36Z"
+    message: Resource /ConfigMap/istio-system/istio-sidecar-injector appeared 2 times
+      among application resources.
+    type: RepeatedResourceWarning
+  - lastTransitionTime: "2023-01-03T09:52:36Z"
+    message: Resource /Service/istio-system/istiod appeared 2 times among application
+      resources.
+    type: RepeatedResourceWarning
+  - lastTransitionTime: "2023-01-03T09:52:36Z"
+    message: Resource /ServiceAccount/istio-system/istiod appeared 2 times among application
+      resources.
+    type: RepeatedResourceWarning
+  - lastTransitionTime: "2023-01-03T09:52:36Z"
+    message: Resource admissionregistration.k8s.io/MutatingWebhookConfiguration//istio-sidecar-injector
+      appeared 2 times among application resources.
+    type: RepeatedResourceWarning
+  - lastTransitionTime: "2023-01-03T09:52:36Z"
+    message: Resource apps/Deployment/istio-system/istiod appeared 2 times among application
+      resources.
+    type: RepeatedResourceWarning
+  - lastTransitionTime: "2023-01-03T09:52:36Z"
+    message: Resource autoscaling/HorizontalPodAutoscaler/istio-system/istiod appeared
+      2 times among application resources.
+    type: RepeatedResourceWarning
+  - lastTransitionTime: "2023-01-03T09:52:36Z"
+    message: Resource networking.istio.io/EnvoyFilter/istio-system/stats-filter-1.13
+      appeared 2 times among application resources.
+    type: RepeatedResourceWarning
+  - lastTransitionTime: "2023-01-03T09:52:36Z"
+    message: Resource networking.istio.io/EnvoyFilter/istio-system/stats-filter-1.14
+      appeared 2 times among application resources.
+    type: RepeatedResourceWarning
+  - lastTransitionTime: "2023-01-03T09:52:36Z"
+    message: Resource networking.istio.io/EnvoyFilter/istio-system/stats-filter-1.15
+      appeared 2 times among application resources.
+    type: RepeatedResourceWarning
+  - lastTransitionTime: "2023-01-03T09:52:36Z"
+    message: Resource networking.istio.io/EnvoyFilter/istio-system/tcp-stats-filter-1.13
+      appeared 2 times among application resources.
+    type: RepeatedResourceWarning
+  - lastTransitionTime: "2023-01-03T09:52:36Z"
+    message: Resource networking.istio.io/EnvoyFilter/istio-system/tcp-stats-filter-1.14
+      appeared 2 times among application resources.
+    type: RepeatedResourceWarning
+  - lastTransitionTime: "2023-01-03T09:52:36Z"
+    message: Resource networking.istio.io/EnvoyFilter/istio-system/tcp-stats-filter-1.15
+      appeared 2 times among application resources.
+    type: RepeatedResourceWarning
+  - lastTransitionTime: "2023-01-03T09:52:36Z"
+    message: Resource policy/PodDisruptionBudget/istio-system/istiod appeared 2 times
+      among application resources.
+    type: RepeatedResourceWarning
+  - lastTransitionTime: "2023-01-03T09:52:36Z"
+    message: Resource rbac.authorization.k8s.io/ClusterRole//istio-reader-clusterrole-istio-system
+      appeared 2 times among application resources.
+    type: RepeatedResourceWarning
+  - lastTransitionTime: "2023-01-03T09:52:36Z"
+    message: Resource rbac.authorization.k8s.io/ClusterRole//istiod-clusterrole-istio-system
+      appeared 2 times among application resources.
+    type: RepeatedResourceWarning
+  - lastTransitionTime: "2023-01-03T09:52:36Z"
+    message: Resource rbac.authorization.k8s.io/ClusterRole//istiod-gateway-controller-istio-system
+      appeared 2 times among application resources.
+    type: RepeatedResourceWarning
+  - lastTransitionTime: "2023-01-03T09:52:36Z"
+    message: Resource rbac.authorization.k8s.io/ClusterRoleBinding//istio-reader-clusterrole-istio-system
+      appeared 2 times among application resources.
+    type: RepeatedResourceWarning
+  - lastTransitionTime: "2023-01-03T09:52:36Z"
+    message: Resource rbac.authorization.k8s.io/ClusterRoleBinding//istiod-clusterrole-istio-system
+      appeared 2 times among application resources.
+    type: RepeatedResourceWarning
+  - lastTransitionTime: "2023-01-03T09:52:36Z"
+    message: Resource rbac.authorization.k8s.io/ClusterRoleBinding//istiod-gateway-controller-istio-system
+      appeared 2 times among application resources.
+    type: RepeatedResourceWarning
+  - lastTransitionTime: "2023-01-03T09:52:36Z"
+    message: Resource rbac.authorization.k8s.io/Role/istio-system/istiod appeared
+      2 times among application resources.
+    type: RepeatedResourceWarning
+  - lastTransitionTime: "2023-01-03T09:52:36Z"
+    message: Resource rbac.authorization.k8s.io/RoleBinding/istio-system/istiod appeared
+      2 times among application resources.
+    type: RepeatedResourceWarning
+  health:
+    status: Healthy
+  reconciledAt: "2023-01-03T09:51:54Z"
+  resources:
+  - kind: ConfigMap
+    name: istio
+    namespace: istio-system
+    status: Synced
+    version: v1
+  - kind: ConfigMap
+    name: istio-sidecar-injector
+    namespace: istio-system
+    status: Synced
+    version: v1
+  - health:
+      status: Healthy
+    kind: Service
+    name: istiod
+    namespace: istio-system
+    status: Synced
+    version: v1
+  - kind: ServiceAccount
+    name: istiod
+    namespace: istio-system
+    status: Synced
+    version: v1
+  - group: admissionregistration.k8s.io
+    kind: MutatingWebhookConfiguration
+    name: istio-sidecar-injector
+    status: Synced
+    version: v1
+  - group: apps
+    health:
+      status: Healthy
+    kind: Deployment
+    name: istiod
+    namespace: istio-system
+    status: Synced
+    version: v1
+  - group: autoscaling
+    health:
+      message: recommended size matches current size
+      status: Healthy
+    kind: HorizontalPodAutoscaler
+    name: istiod
+    namespace: istio-system
+    status: Synced
+    version: v2
+  - group: networking.istio.io
+    kind: EnvoyFilter
+    name: stats-filter-1.13
+    namespace: istio-system
+    status: Synced
+    version: v1alpha3
+  - group: networking.istio.io
+    kind: EnvoyFilter
+    name: stats-filter-1.14
+    namespace: istio-system
+    status: Synced
+    version: v1alpha3
+  - group: networking.istio.io
+    kind: EnvoyFilter
+    name: stats-filter-1.15
+    namespace: istio-system
+    status: Synced
+    version: v1alpha3
+  - group: networking.istio.io
+    kind: EnvoyFilter
+    name: tcp-stats-filter-1.13
+    namespace: istio-system
+    status: Synced
+    version: v1alpha3
+  - group: networking.istio.io
+    kind: EnvoyFilter
+    name: tcp-stats-filter-1.14
+    namespace: istio-system
+    status: Synced
+    version: v1alpha3
+  - group: networking.istio.io
+    kind: EnvoyFilter
+    name: tcp-stats-filter-1.15
+    namespace: istio-system
+    status: Synced
+    version: v1alpha3
+  - group: policy
+    kind: PodDisruptionBudget
+    name: istiod
+    namespace: istio-system
+    status: Synced
+    version: v1
+  - group: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: istio-reader-clusterrole-istio-system
+    status: Synced
+    version: v1
+  - group: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: istiod-clusterrole-istio-system
+    status: Synced
+    version: v1
+  - group: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: istiod-gateway-controller-istio-system
+    status: Synced
+    version: v1
+  - group: rbac.authorization.k8s.io
+    kind: ClusterRoleBinding
+    name: istio-reader-clusterrole-istio-system
+    status: Synced
+    version: v1
+  - group: rbac.authorization.k8s.io
+    kind: ClusterRoleBinding
+    name: istiod-clusterrole-istio-system
+    status: Synced
+    version: v1
+  - group: rbac.authorization.k8s.io
+    kind: ClusterRoleBinding
+    name: istiod-gateway-controller-istio-system
+    status: Synced
+    version: v1
+  - group: rbac.authorization.k8s.io
+    kind: Role
+    name: istiod
+    namespace: istio-system
+    status: Synced
+    version: v1
+  - group: rbac.authorization.k8s.io
+    kind: RoleBinding
+    name: istiod
+    namespace: istio-system
+    status: Synced
+    version: v1
+  sourceType: Directory
+  summary:
+    images:
+    - docker.io/istio/pilot:1.15.3
+  sync:
+    comparedTo:
+      destination:
+        namespace: istio-system
+        server: https://kubernetes.default.svc
+      source:
+        directory:
+          jsonnet: {}
+          recurse: true
+        path: istion-helm/dir-istiod
+        repoURL: git@github.com:hfbhfb/argo-test
+        targetRevision: master
+    revision: 730541c35f261875411d35ae3fec6da9b212d023
+    status: Synced
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"argoproj.io/v1alpha1","kind":"Application","metadata":{"annotations":{},"name":"prome-grafna-dev","namespace":"argocd"},"spec":{"destination":{"name":"","namespace":"monitoring","server":"https://kubernetes.default.svc"},"project":"default","source":{"directory":{"recurse":true},"path":"prometheus/dir-grafana-dev","repoURL":"git@github.com:hfbhfb/argo-test","targetRevision":"master"}}}
+  creationTimestamp: "2022-12-15T06:38:03Z"
+  generation: 9158
+  name: prome-grafna-dev
+  namespace: argocd
+  resourceVersion: "11094028"
+  uid: ec156b0d-7c86-4670-8e9d-63a7dc630943
+spec:
+  destination:
+    namespace: monitoring
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    directory:
+      jsonnet: {}
+      recurse: true
+    path: prometheus/dir-grafana-dev
+    repoURL: git@github.com:hfbhfb/argo-test
+    targetRevision: master
+status:
+  health:
+    status: Healthy
+  history:
+  - deployStartedAt: "2022-12-15T06:39:18Z"
+    deployedAt: "2022-12-15T06:39:44Z"
+    id: 0
+    revision: 730541c35f261875411d35ae3fec6da9b212d023
+    source:
+      directory:
+        jsonnet: {}
+        recurse: true
+      path: prometheus/dir-grafana-dev
+      repoURL: git@github.com:hfbhfb/argo-test
+      targetRevision: master
+  operationState:
+    finishedAt: "2022-12-15T06:39:44Z"
+    message: successfully synced (all tasks run)
+    operation:
+      initiatedBy:
+        username: admin
+      retry: {}
+      sync:
+        revision: 730541c35f261875411d35ae3fec6da9b212d023
+        syncStrategy:
+          hook: {}
+    phase: Succeeded
+    startedAt: "2022-12-15T06:39:18Z"
+    syncResult:
+      resources:
+      - group: ""
+        hookPhase: Running
+        kind: ServiceAccount
+        message: serviceaccount/mygrafana created
+        name: mygrafana
+        namespace: monitoring
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: ""
+        hookPhase: Running
+        kind: ServiceAccount
+        message: serviceaccount/mygrafana-test created
+        name: mygrafana-test
+        namespace: monitoring
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: ""
+        hookPhase: Running
+        kind: Secret
+        message: secret/mygrafana created
+        name: mygrafana
+        namespace: monitoring
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: ""
+        hookPhase: Running
+        kind: ConfigMap
+        message: configmap/mygrafana-test created
+        name: mygrafana-test
+        namespace: monitoring
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: ""
+        hookPhase: Running
+        kind: ConfigMap
+        message: configmap/mygrafana created
+        name: mygrafana
+        namespace: monitoring
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: ""
+        hookPhase: Running
+        kind: PersistentVolumeClaim
+        message: persistentvolumeclaim/mygrafana created
+        name: mygrafana
+        namespace: monitoring
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: rbac.authorization.k8s.io
+        hookPhase: Running
+        kind: ClusterRole
+        message: 'clusterrole.rbac.authorization.k8s.io/mygrafana-clusterrole reconciled.
+          reconciliation required create. clusterrole.rbac.authorization.k8s.io/mygrafana-clusterrole
+          configured. Warning: resource clusterroles/mygrafana-clusterrole is missing
+          the kubectl.kubernetes.io/last-applied-configuration annotation which is
+          required by  apply.  apply should only be used on resources created declaratively
+          by either  create --save-config or  apply. The missing annotation will be
+          patched automatically.'
+        name: mygrafana-clusterrole
+        namespace: monitoring
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: rbac.authorization.k8s.io
+        hookPhase: Running
+        kind: ClusterRoleBinding
+        message: "clusterrolebinding.rbac.authorization.k8s.io/mygrafana-clusterrolebinding
+          reconciled. reconciliation required create\n\tmissing subjects added:\n\t\t{Kind:ServiceAccount
+          APIGroup: Name:mygrafana Namespace:monitoring}. clusterrolebinding.rbac.authorization.k8s.io/mygrafana-clusterrolebinding
+          configured. Warning: resource clusterrolebindings/mygrafana-clusterrolebinding
+          is missing the kubectl.kubernetes.io/last-applied-configuration annotation
+          which is required by  apply.  apply should only be used on resources created
+          declaratively by either  create --save-config or  apply. The missing annotation
+          will be patched automatically."
+        name: mygrafana-clusterrolebinding
+        namespace: monitoring
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: rbac.authorization.k8s.io
+        hookPhase: Running
+        kind: Role
+        message: "role.rbac.authorization.k8s.io/mygrafana reconciled. reconciliation
+          required create\n\tmissing rules added:\n\t\t{Verbs:[use] APIGroups:[extensions]
+          Resources:[podsecuritypolicies] ResourceNames:[mygrafana] NonResourceURLs:[]}.
+          role.rbac.authorization.k8s.io/mygrafana configured. Warning: resource roles/mygrafana
+          is missing the kubectl.kubernetes.io/last-applied-configuration annotation
+          which is required by  apply.  apply should only be used on resources created
+          declaratively by either  create --save-config or  apply. The missing annotation
+          will be patched automatically."
+        name: mygrafana
+        namespace: monitoring
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: rbac.authorization.k8s.io
+        hookPhase: Running
+        kind: Role
+        message: "role.rbac.authorization.k8s.io/mygrafana-test reconciled. reconciliation
+          required create\n\tmissing rules added:\n\t\t{Verbs:[use] APIGroups:[policy]
+          Resources:[podsecuritypolicies] ResourceNames:[mygrafana-test] NonResourceURLs:[]}.
+          role.rbac.authorization.k8s.io/mygrafana-test configured. Warning: resource
+          roles/mygrafana-test is missing the kubectl.kubernetes.io/last-applied-configuration
+          annotation which is required by  apply.  apply should only be used on resources
+          created declaratively by either  create --save-config or  apply. The missing
+          annotation will be patched automatically."
+        name: mygrafana-test
+        namespace: monitoring
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: rbac.authorization.k8s.io
+        hookPhase: Running
+        kind: RoleBinding
+        message: "rolebinding.rbac.authorization.k8s.io/mygrafana reconciled. reconciliation
+          required create\n\tmissing subjects added:\n\t\t{Kind:ServiceAccount APIGroup:
+          Name:mygrafana Namespace:monitoring}. rolebinding.rbac.authorization.k8s.io/mygrafana
+          configured. Warning: resource rolebindings/mygrafana is missing the kubectl.kubernetes.io/last-applied-configuration
+          annotation which is required by  apply.  apply should only be used on resources
+          created declaratively by either  create --save-config or  apply. The missing
+          annotation will be patched automatically."
+        name: mygrafana
+        namespace: monitoring
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: rbac.authorization.k8s.io
+        hookPhase: Running
+        kind: RoleBinding
+        message: "rolebinding.rbac.authorization.k8s.io/mygrafana-test reconciled.
+          reconciliation required create\n\tmissing subjects added:\n\t\t{Kind:ServiceAccount
+          APIGroup: Name:mygrafana-test Namespace:monitoring}. rolebinding.rbac.authorization.k8s.io/mygrafana-test
+          configured. Warning: resource rolebindings/mygrafana-test is missing the
+          kubectl.kubernetes.io/last-applied-configuration annotation which is required
+          by  apply.  apply should only be used on resources created declaratively
+          by either  create --save-config or  apply. The missing annotation will be
+          patched automatically."
+        name: mygrafana-test
+        namespace: monitoring
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: ""
+        hookPhase: Running
+        kind: Service
+        message: service/mygrafana created
+        name: mygrafana
+        namespace: monitoring
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: apps
+        hookPhase: Running
+        kind: Deployment
+        message: deployment.apps/mygrafana created
+        name: mygrafana
+        namespace: monitoring
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      revision: 730541c35f261875411d35ae3fec6da9b212d023
+      source:
+        directory:
+          jsonnet: {}
+          recurse: true
+        path: prometheus/dir-grafana-dev
+        repoURL: git@github.com:hfbhfb/argo-test
+        targetRevision: master
+  reconciledAt: "2023-01-03T09:50:42Z"
+  resources:
+  - kind: ConfigMap
+    name: mygrafana
+    namespace: monitoring
+    status: Synced
+    version: v1
+  - kind: ConfigMap
+    name: mygrafana-test
+    namespace: monitoring
+    status: Synced
+    version: v1
+  - health:
+      status: Healthy
+    kind: PersistentVolumeClaim
+    name: mygrafana
+    namespace: monitoring
+    status: Synced
+    version: v1
+  - kind: Secret
+    name: mygrafana
+    namespace: monitoring
+    status: Synced
+    version: v1
+  - health:
+      status: Healthy
+    kind: Service
+    name: mygrafana
+    namespace: monitoring
+    status: Synced
+    version: v1
+  - kind: ServiceAccount
+    name: mygrafana
+    namespace: monitoring
+    status: Synced
+    version: v1
+  - kind: ServiceAccount
+    name: mygrafana-test
+    namespace: monitoring
+    status: Synced
+    version: v1
+  - group: apps
+    health:
+      status: Healthy
+    kind: Deployment
+    name: mygrafana
+    namespace: monitoring
+    status: Synced
+    version: v1
+  - group: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: mygrafana-clusterrole
+    status: Synced
+    version: v1
+  - group: rbac.authorization.k8s.io
+    kind: ClusterRoleBinding
+    name: mygrafana-clusterrolebinding
+    status: Synced
+    version: v1
+  - group: rbac.authorization.k8s.io
+    kind: Role
+    name: mygrafana
+    namespace: monitoring
+    status: Synced
+    version: v1
+  - group: rbac.authorization.k8s.io
+    kind: Role
+    name: mygrafana-test
+    namespace: monitoring
+    status: Synced
+    version: v1
+  - group: rbac.authorization.k8s.io
+    kind: RoleBinding
+    name: mygrafana
+    namespace: monitoring
+    status: Synced
+    version: v1
+  - group: rbac.authorization.k8s.io
+    kind: RoleBinding
+    name: mygrafana-test
+    namespace: monitoring
+    status: Synced
+    version: v1
+  sourceType: Directory
+  summary:
+    images:
+    - busybox:1.31.1
+    - grafana/grafana:9.1.4
+  sync:
+    comparedTo:
+      destination:
+        namespace: monitoring
+        server: https://kubernetes.default.svc
+      source:
+        directory:
+          jsonnet: {}
+          recurse: true
+        path: prometheus/dir-grafana-dev
+        repoURL: git@github.com:hfbhfb/argo-test
+        targetRevision: master
+    revision: 730541c35f261875411d35ae3fec6da9b212d023
+    status: Synced
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"argoproj.io/v1alpha1","kind":"Application","metadata":{"annotations":{},"name":"prometheus-dev","namespace":"argocd"},"spec":{"destination":{"name":"","namespace":"monitoring","server":"https://kubernetes.default.svc"},"project":"default","source":{"directory":{"recurse":true},"path":"prometheus/dir-prometheus-dev","repoURL":"git@github.com:hfbhfb/argo-test","targetRevision":"master"}}}
+  creationTimestamp: "2022-12-15T06:38:03Z"
+  generation: 9178
+  name: prometheus-dev
+  namespace: argocd
+  resourceVersion: "11094030"
+  uid: ff5653cd-4168-46a9-a69a-19ff2a9caab8
+spec:
+  destination:
+    namespace: monitoring
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    directory:
+      jsonnet: {}
+      recurse: true
+    path: prometheus/dir-prometheus-dev
+    repoURL: git@github.com:hfbhfb/argo-test
+    targetRevision: master
+status:
+  health:
+    status: Healthy
+  history:
+  - deployStartedAt: "2022-12-15T06:39:40Z"
+    deployedAt: "2022-12-15T06:39:54Z"
+    id: 0
+    revision: 730541c35f261875411d35ae3fec6da9b212d023
+    source:
+      directory:
+        jsonnet: {}
+        recurse: true
+      path: prometheus/dir-prometheus-dev
+      repoURL: git@github.com:hfbhfb/argo-test
+      targetRevision: master
+  operationState:
+    finishedAt: "2022-12-15T06:39:55Z"
+    message: successfully synced (all tasks run)
+    operation:
+      initiatedBy:
+        username: admin
+      retry: {}
+      sync:
+        revision: 730541c35f261875411d35ae3fec6da9b212d023
+        syncStrategy:
+          hook: {}
+    phase: Succeeded
+    startedAt: "2022-12-15T06:39:40Z"
+    syncResult:
+      resources:
+      - group: ""
+        hookPhase: Running
+        kind: ServiceAccount
+        message: serviceaccount/myprometheus-server created
+        name: myprometheus-server
+        namespace: monitoring
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: ""
+        hookPhase: Running
+        kind: ServiceAccount
+        message: serviceaccount/myprometheus-kube-state-metrics created
+        name: myprometheus-kube-state-metrics
+        namespace: monitoring
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: ""
+        hookPhase: Running
+        kind: ServiceAccount
+        message: serviceaccount/myprometheus-alertmanager created
+        name: myprometheus-alertmanager
+        namespace: monitoring
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: ""
+        hookPhase: Running
+        kind: ServiceAccount
+        message: serviceaccount/myprometheus-node-exporter created
+        name: myprometheus-node-exporter
+        namespace: monitoring
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: ""
+        hookPhase: Running
+        kind: ServiceAccount
+        message: serviceaccount/myprometheus-pushgateway created
+        name: myprometheus-pushgateway
+        namespace: monitoring
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: ""
+        hookPhase: Running
+        kind: ConfigMap
+        message: configmap/myprometheus-server created
+        name: myprometheus-server
+        namespace: monitoring
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: ""
+        hookPhase: Running
+        kind: ConfigMap
+        message: configmap/myprometheus-alertmanager created
+        name: myprometheus-alertmanager
+        namespace: monitoring
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: ""
+        hookPhase: Running
+        kind: PersistentVolumeClaim
+        message: persistentvolumeclaim/myprometheus-server created
+        name: myprometheus-server
+        namespace: monitoring
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: ""
+        hookPhase: Running
+        kind: PersistentVolumeClaim
+        message: persistentvolumeclaim/myprometheus-alertmanager created
+        name: myprometheus-alertmanager
+        namespace: monitoring
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: rbac.authorization.k8s.io
+        hookPhase: Running
+        kind: ClusterRole
+        message: 'clusterrole.rbac.authorization.k8s.io/myprometheus-alertmanager
+          reconciled. reconciliation required create. clusterrole.rbac.authorization.k8s.io/myprometheus-alertmanager
+          configured. Warning: resource clusterroles/myprometheus-alertmanager is
+          missing the kubectl.kubernetes.io/last-applied-configuration annotation
+          which is required by  apply.  apply should only be used on resources created
+          declaratively by either  create --save-config or  apply. The missing annotation
+          will be patched automatically.'
+        name: myprometheus-alertmanager
+        namespace: monitoring
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: rbac.authorization.k8s.io
+        hookPhase: Running
+        kind: ClusterRole
+        message: 'clusterrole.rbac.authorization.k8s.io/myprometheus-pushgateway reconciled.
+          reconciliation required create. clusterrole.rbac.authorization.k8s.io/myprometheus-pushgateway
+          configured. Warning: resource clusterroles/myprometheus-pushgateway is missing
+          the kubectl.kubernetes.io/last-applied-configuration annotation which is
+          required by  apply.  apply should only be used on resources created declaratively
+          by either  create --save-config or  apply. The missing annotation will be
+          patched automatically.'
+        name: myprometheus-pushgateway
+        namespace: monitoring
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: rbac.authorization.k8s.io
+        hookPhase: Running
+        kind: ClusterRole
+        message: "clusterrole.rbac.authorization.k8s.io/myprometheus-server reconciled.
+          reconciliation required create\n\tmissing rules added:\n\t\t{Verbs:[get
+          list watch] APIGroups:[] Resources:[nodes nodes/proxy nodes/metrics services
+          endpoints pods ingresses configmaps] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get
+          list watch] APIGroups:[extensions networking.k8s.io] Resources:[ingresses/status
+          ingresses] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[get] APIGroups:[]
+          Resources:[] ResourceNames:[] NonResourceURLs:[/metrics]}. clusterrole.rbac.authorization.k8s.io/myprometheus-server
+          configured. Warning: resource clusterroles/myprometheus-server is missing
+          the kubectl.kubernetes.io/last-applied-configuration annotation which is
+          required by  apply.  apply should only be used on resources created declaratively
+          by either  create --save-config or  apply. The missing annotation will be
+          patched automatically."
+        name: myprometheus-server
+        namespace: monitoring
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: rbac.authorization.k8s.io
+        hookPhase: Running
+        kind: ClusterRole
+        message: "clusterrole.rbac.authorization.k8s.io/myprometheus-kube-state-metrics
+          reconciled. reconciliation required create\n\tmissing rules added:\n\t\t{Verbs:[list
+          watch] APIGroups:[certificates.k8s.io] Resources:[certificatesigningrequests]
+          ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[list watch] APIGroups:[]
+          Resources:[configmaps] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[list
+          watch] APIGroups:[batch] Resources:[cronjobs] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[list
+          watch] APIGroups:[extensions apps] Resources:[daemonsets] ResourceNames:[]
+          NonResourceURLs:[]}\n\t\t{Verbs:[list watch] APIGroups:[extensions apps]
+          Resources:[deployments] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[list
+          watch] APIGroups:[] Resources:[endpoints] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[list
+          watch] APIGroups:[autoscaling] Resources:[horizontalpodautoscalers] ResourceNames:[]
+          NonResourceURLs:[]}\n\t\t{Verbs:[list watch] APIGroups:[extensions networking.k8s.io]
+          Resources:[ingresses] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[list
+          watch] APIGroups:[batch] Resources:[jobs] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[list
+          watch] APIGroups:[] Resources:[limitranges] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[list
+          watch] APIGroups:[admissionregistration.k8s.io] Resources:[mutatingwebhookconfigurations]
+          ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[list watch] APIGroups:[]
+          Resources:[namespaces] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[list
+          watch] APIGroups:[networking.k8s.io] Resources:[networkpolicies] ResourceNames:[]
+          NonResourceURLs:[]}\n\t\t{Verbs:[list watch] APIGroups:[] Resources:[nodes]
+          ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[list watch] APIGroups:[]
+          Resources:[persistentvolumeclaims] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[list
+          watch] APIGroups:[] Resources:[persistentvolumes] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[list
+          watch] APIGroups:[policy] Resources:[poddisruptionbudgets] ResourceNames:[]
+          NonResourceURLs:[]}\n\t\t{Verbs:[list watch] APIGroups:[] Resources:[pods]
+          ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[list watch] APIGroups:[extensions
+          apps] Resources:[replicasets] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[list
+          watch] APIGroups:[] Resources:[replicationcontrollers] ResourceNames:[]
+          NonResourceURLs:[]}\n\t\t{Verbs:[list watch] APIGroups:[] Resources:[resourcequotas]
+          ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[list watch] APIGroups:[]
+          Resources:[secrets] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[list
+          watch] APIGroups:[] Resources:[services] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[list
+          watch] APIGroups:[apps] Resources:[statefulsets] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[list
+          watch] APIGroups:[storage.k8s.io] Resources:[storageclasses] ResourceNames:[]
+          NonResourceURLs:[]}\n\t\t{Verbs:[list watch] APIGroups:[admissionregistration.k8s.io]
+          Resources:[validatingwebhookconfigurations] ResourceNames:[] NonResourceURLs:[]}\n\t\t{Verbs:[list
+          watch] APIGroups:[storage.k8s.io] Resources:[volumeattachments] ResourceNames:[]
+          NonResourceURLs:[]}. clusterrole.rbac.authorization.k8s.io/myprometheus-kube-state-metrics
+          configured. Warning: resource clusterroles/myprometheus-kube-state-metrics
+          is missing the kubectl.kubernetes.io/last-applied-configuration annotation
+          which is required by  apply.  apply should only be used on resources created
+          declaratively by either  create --save-config or  apply. The missing annotation
+          will be patched automatically."
+        name: myprometheus-kube-state-metrics
+        namespace: monitoring
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: rbac.authorization.k8s.io
+        hookPhase: Running
+        kind: ClusterRoleBinding
+        message: "clusterrolebinding.rbac.authorization.k8s.io/myprometheus-alertmanager
+          reconciled. reconciliation required create\n\tmissing subjects added:\n\t\t{Kind:ServiceAccount
+          APIGroup: Name:myprometheus-alertmanager Namespace:monitoring}. clusterrolebinding.rbac.authorization.k8s.io/myprometheus-alertmanager
+          configured. Warning: resource clusterrolebindings/myprometheus-alertmanager
+          is missing the kubectl.kubernetes.io/last-applied-configuration annotation
+          which is required by  apply.  apply should only be used on resources created
+          declaratively by either  create --save-config or  apply. The missing annotation
+          will be patched automatically."
+        name: myprometheus-alertmanager
+        namespace: monitoring
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: rbac.authorization.k8s.io
+        hookPhase: Running
+        kind: ClusterRoleBinding
+        message: "clusterrolebinding.rbac.authorization.k8s.io/myprometheus-pushgateway
+          reconciled. reconciliation required create\n\tmissing subjects added:\n\t\t{Kind:ServiceAccount
+          APIGroup: Name:myprometheus-pushgateway Namespace:monitoring}. clusterrolebinding.rbac.authorization.k8s.io/myprometheus-pushgateway
+          configured. Warning: resource clusterrolebindings/myprometheus-pushgateway
+          is missing the kubectl.kubernetes.io/last-applied-configuration annotation
+          which is required by  apply.  apply should only be used on resources created
+          declaratively by either  create --save-config or  apply. The missing annotation
+          will be patched automatically."
+        name: myprometheus-pushgateway
+        namespace: monitoring
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: rbac.authorization.k8s.io
+        hookPhase: Running
+        kind: ClusterRoleBinding
+        message: "clusterrolebinding.rbac.authorization.k8s.io/myprometheus-kube-state-metrics
+          reconciled. reconciliation required create\n\tmissing subjects added:\n\t\t{Kind:ServiceAccount
+          APIGroup: Name:myprometheus-kube-state-metrics Namespace:monitoring}. clusterrolebinding.rbac.authorization.k8s.io/myprometheus-kube-state-metrics
+          configured. Warning: resource clusterrolebindings/myprometheus-kube-state-metrics
+          is missing the kubectl.kubernetes.io/last-applied-configuration annotation
+          which is required by  apply.  apply should only be used on resources created
+          declaratively by either  create --save-config or  apply. The missing annotation
+          will be patched automatically."
+        name: myprometheus-kube-state-metrics
+        namespace: monitoring
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: rbac.authorization.k8s.io
+        hookPhase: Running
+        kind: ClusterRoleBinding
+        message: "clusterrolebinding.rbac.authorization.k8s.io/myprometheus-server
+          reconciled. reconciliation required create\n\tmissing subjects added:\n\t\t{Kind:ServiceAccount
+          APIGroup: Name:myprometheus-server Namespace:monitoring}. clusterrolebinding.rbac.authorization.k8s.io/myprometheus-server
+          configured. Warning: resource clusterrolebindings/myprometheus-server is
+          missing the kubectl.kubernetes.io/last-applied-configuration annotation
+          which is required by  apply.  apply should only be used on resources created
+          declaratively by either  create --save-config or  apply. The missing annotation
+          will be patched automatically."
+        name: myprometheus-server
+        namespace: monitoring
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: ""
+        hookPhase: Running
+        kind: Service
+        message: service/myprometheus-node-exporter created
+        name: myprometheus-node-exporter
+        namespace: monitoring
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: ""
+        hookPhase: Running
+        kind: Service
+        message: service/myprometheus-kube-state-metrics created
+        name: myprometheus-kube-state-metrics
+        namespace: monitoring
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: ""
+        hookPhase: Running
+        kind: Service
+        message: service/myprometheus-pushgateway created
+        name: myprometheus-pushgateway
+        namespace: monitoring
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: ""
+        hookPhase: Running
+        kind: Service
+        message: service/myprometheus-server created
+        name: myprometheus-server
+        namespace: monitoring
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: ""
+        hookPhase: Running
+        kind: Service
+        message: service/myprometheus-alertmanager created
+        name: myprometheus-alertmanager
+        namespace: monitoring
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: apps
+        hookPhase: Running
+        kind: DaemonSet
+        message: daemonset.apps/myprometheus-node-exporter created
+        name: myprometheus-node-exporter
+        namespace: monitoring
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: apps
+        hookPhase: Running
+        kind: Deployment
+        message: deployment.apps/myprometheus-kube-state-metrics created
+        name: myprometheus-kube-state-metrics
+        namespace: monitoring
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: apps
+        hookPhase: Running
+        kind: Deployment
+        message: deployment.apps/myprometheus-pushgateway created
+        name: myprometheus-pushgateway
+        namespace: monitoring
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: apps
+        hookPhase: Running
+        kind: Deployment
+        message: deployment.apps/myprometheus-server created
+        name: myprometheus-server
+        namespace: monitoring
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      - group: apps
+        hookPhase: Running
+        kind: Deployment
+        message: deployment.apps/myprometheus-alertmanager created
+        name: myprometheus-alertmanager
+        namespace: monitoring
+        status: Synced
+        syncPhase: Sync
+        version: v1
+      revision: 730541c35f261875411d35ae3fec6da9b212d023
+      source:
+        directory:
+          jsonnet: {}
+          recurse: true
+        path: prometheus/dir-prometheus-dev
+        repoURL: git@github.com:hfbhfb/argo-test
+        targetRevision: master
+  reconciledAt: "2023-01-03T09:50:42Z"
+  resources:
+  - kind: ConfigMap
+    name: myprometheus-alertmanager
+    namespace: monitoring
+    status: Synced
+    version: v1
+  - kind: ConfigMap
+    name: myprometheus-server
+    namespace: monitoring
+    status: Synced
+    version: v1
+  - health:
+      status: Healthy
+    kind: PersistentVolumeClaim
+    name: myprometheus-alertmanager
+    namespace: monitoring
+    status: Synced
+    version: v1
+  - health:
+      status: Healthy
+    kind: PersistentVolumeClaim
+    name: myprometheus-server
+    namespace: monitoring
+    status: Synced
+    version: v1
+  - health:
+      status: Healthy
+    kind: Service
+    name: myprometheus-alertmanager
+    namespace: monitoring
+    status: Synced
+    version: v1
+  - health:
+      status: Healthy
+    kind: Service
+    name: myprometheus-kube-state-metrics
+    namespace: monitoring
+    status: Synced
+    version: v1
+  - health:
+      status: Healthy
+    kind: Service
+    name: myprometheus-node-exporter
+    namespace: monitoring
+    status: Synced
+    version: v1
+  - health:
+      status: Healthy
+    kind: Service
+    name: myprometheus-pushgateway
+    namespace: monitoring
+    status: Synced
+    version: v1
+  - health:
+      status: Healthy
+    kind: Service
+    name: myprometheus-server
+    namespace: monitoring
+    status: Synced
+    version: v1
+  - kind: ServiceAccount
+    name: myprometheus-alertmanager
+    namespace: monitoring
+    status: Synced
+    version: v1
+  - kind: ServiceAccount
+    name: myprometheus-kube-state-metrics
+    namespace: monitoring
+    status: Synced
+    version: v1
+  - kind: ServiceAccount
+    name: myprometheus-node-exporter
+    namespace: monitoring
+    status: Synced
+    version: v1
+  - kind: ServiceAccount
+    name: myprometheus-pushgateway
+    namespace: monitoring
+    status: Synced
+    version: v1
+  - kind: ServiceAccount
+    name: myprometheus-server
+    namespace: monitoring
+    status: Synced
+    version: v1
+  - group: apps
+    health:
+      status: Healthy
+    kind: DaemonSet
+    name: myprometheus-node-exporter
+    namespace: monitoring
+    status: Synced
+    version: v1
+  - group: apps
+    health:
+      status: Healthy
+    kind: Deployment
+    name: myprometheus-alertmanager
+    namespace: monitoring
+    status: Synced
+    version: v1
+  - group: apps
+    health:
+      status: Healthy
+    kind: Deployment
+    name: myprometheus-kube-state-metrics
+    namespace: monitoring
+    status: Synced
+    version: v1
+  - group: apps
+    health:
+      status: Healthy
+    kind: Deployment
+    name: myprometheus-pushgateway
+    namespace: monitoring
+    status: Synced
+    version: v1
+  - group: apps
+    health:
+      status: Healthy
+    kind: Deployment
+    name: myprometheus-server
+    namespace: monitoring
+    status: Synced
+    version: v1
+  - group: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: myprometheus-alertmanager
+    status: Synced
+    version: v1
+  - group: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: myprometheus-kube-state-metrics
+    status: Synced
+    version: v1
+  - group: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: myprometheus-pushgateway
+    status: Synced
+    version: v1
+  - group: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: myprometheus-server
+    status: Synced
+    version: v1
+  - group: rbac.authorization.k8s.io
+    kind: ClusterRoleBinding
+    name: myprometheus-alertmanager
+    status: Synced
+    version: v1
+  - group: rbac.authorization.k8s.io
+    kind: ClusterRoleBinding
+    name: myprometheus-kube-state-metrics
+    status: Synced
+    version: v1
+  - group: rbac.authorization.k8s.io
+    kind: ClusterRoleBinding
+    name: myprometheus-pushgateway
+    status: Synced
+    version: v1
+  - group: rbac.authorization.k8s.io
+    kind: ClusterRoleBinding
+    name: myprometheus-server
+    status: Synced
+    version: v1
+  sourceType: Directory
+  summary:
+    images:
+    - bitnami/kube-state-metrics:2.4.1
+    - jimmidyson/configmap-reload:v0.5.0
+    - prom/pushgateway:v1.4.2
+    - quay.io/prometheus/alertmanager:v0.23.0
+    - quay.io/prometheus/node-exporter:v1.3.0
+    - quay.io/prometheus/prometheus:v2.34.0
+  sync:
+    comparedTo:
+      destination:
+        namespace: monitoring
+        server: https://kubernetes.default.svc
+      source:
+        directory:
+          jsonnet: {}
+          recurse: true
+        path: prometheus/dir-prometheus-dev
+        repoURL: git@github.com:hfbhfb/argo-test
+        targetRevision: master
+    revision: 730541c35f261875411d35ae3fec6da9b212d023
+    status: Synced
