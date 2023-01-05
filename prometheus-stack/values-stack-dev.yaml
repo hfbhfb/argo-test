@@ -13,3 +13,17 @@ kube-state-metrics:
     sha: ""
     pullPolicy: IfNotPresent
 
+
+prometheus:
+  service:
+    ## Service type
+    ##
+    type: NodePort
+    ## Port to expose on each node, if service type is NodePort
+    ##
+    nodePort: 30343
+
+grafana:
+  service:
+    type: NodePort
+    nodePort: 30344

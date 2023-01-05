@@ -17,12 +17,14 @@ metadata:
     release: "mystack"
     heritage: "Helm"
 spec:
+  externalTrafficPolicy: Cluster
   ports:
   - name: http-web
+    nodePort: 30343
     port: 9090
     targetPort: 9090
   publishNotReadyAddresses: false
   selector:
     app.kubernetes.io/name: prometheus
     prometheus: mystack-kube-prometheus-st-prometheus
-  type: "ClusterIP"
+  type: "NodePort"
