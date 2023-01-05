@@ -14,7 +14,7 @@ spec:
   - name: web
     port: 9090
     targetPort: web
-    nodePort: 30344
+    nodePort: 30343
   - name: reloader-web
     port: 8080
     targetPort: reloader-web
