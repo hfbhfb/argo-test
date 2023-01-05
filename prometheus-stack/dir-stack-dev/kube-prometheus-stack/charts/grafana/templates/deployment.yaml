@@ -29,7 +29,7 @@ spec:
         checksum/config: 94cea460bab8b5c655886b3ccebe646f8b8fe5a0b264ada26ed0beb1d75352ef
         checksum/dashboards-json-config: 01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b
         checksum/sc-dashboard-provider-config: cdfa20f50edc04df85832ee52a440ee03ac91f42750a0c5a50267465d0c5da34
-        checksum/secret: 0bf6f4b26c0802bcab9ac7847cc48623f9b76374e9261afdb6d2edc4ed67dc56
+        checksum/secret: c5077bdeff577a42295d4f53ee8273c12633e586cdd7cc0d1a205ae90067cf2f
     spec:
       
       serviceAccountName: mystack-grafana
