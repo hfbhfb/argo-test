@@ -1,0 +1,19 @@
+#image:
+  #registry: uhub.service.ucloud.cn/ucloud_pts
+  #repository: postgresql
+  #tag: 13.3.0-debian-10-r55
+global:
+  imagePullSecrets:
+    - registry-secret-name
+  storageClass: csi-udisk-rssd
+  postgresql:
+    auth:
+      postgresPassword: passwdxxxx
+      username: "admin"
+      password: "admin"
+      database: "db1"
+primary:
+  service:
+    type: NodePort
+    nodePorts:
+      postgresql: 30372

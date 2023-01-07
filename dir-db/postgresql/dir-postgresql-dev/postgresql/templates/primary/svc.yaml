@@ -1,0 +1,27 @@
+---
+# Source: postgresql/templates/primary/svc.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgresql1
+  namespace: "nsdb"
+  labels:
+    app.kubernetes.io/name: postgresql
+    helm.sh/chart: postgresql-12.0.0
+    app.kubernetes.io/instance: postgresql1
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/component: primary
+  annotations:
+spec:
+  type: NodePort
+  externalTrafficPolicy: "Cluster"
+  sessionAffinity: None
+  ports:
+    - name: tcp-postgresql
+      port: 5432
+      targetPort: tcp-postgresql
+      nodePort: 30372
+  selector:
+    app.kubernetes.io/name: postgresql
+    app.kubernetes.io/instance: postgresql1
+    app.kubernetes.io/component: primary
