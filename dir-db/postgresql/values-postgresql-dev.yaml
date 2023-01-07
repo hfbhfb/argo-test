@@ -3,9 +3,7 @@
   #repository: postgresql
   #tag: 13.3.0-debian-10-r55
 global:
-  imagePullSecrets:
-    - registry-secret-name
-  storageClass: csi-udisk-rssd
+  storageClass: csi-hostpath-sc
   postgresql:
     auth:
       postgresPassword: passwdxxxx

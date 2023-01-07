@@ -36,8 +36,6 @@ spec:
     spec:
       serviceAccountName: default
       
-      imagePullSecrets:
-        - name: registry-secret-name
       affinity:
         podAffinity:
           
@@ -165,4 +163,4 @@ spec:
         resources:
           requests:
             storage: "8Gi"
-        storageClassName: csi-udisk-rssd
+        storageClassName: csi-hostpath-sc
