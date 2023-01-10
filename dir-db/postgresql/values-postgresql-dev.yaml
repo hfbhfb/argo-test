@@ -3,7 +3,6 @@
   #repository: postgresql
   #tag: 13.3.0-debian-10-r55
 global:
-  storageClass: csi-hostpath-sc
   postgresql:
     auth:
       postgresPassword: passwdxxxx
