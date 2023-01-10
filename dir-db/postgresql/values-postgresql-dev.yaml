@@ -6,7 +6,7 @@ global:
   postgresql:
     auth:
       postgresPassword: passwdxxxx
-      username: "admin"
+      username: "root"
       password: "admin"
       database: "db1"
 primary:
@@ -14,3 +14,5 @@ primary:
     type: NodePort
     nodePorts:
       postgresql: 30372
+
+# render.tpddns.cn

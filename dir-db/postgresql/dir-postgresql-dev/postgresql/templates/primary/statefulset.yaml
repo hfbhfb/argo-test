@@ -75,7 +75,7 @@ spec:
               value: "/bitnami/postgresql/data"
             # Authentication
             - name: POSTGRES_USER
-              value: "admin"
+              value: "root"
             - name: POSTGRES_POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
@@ -124,7 +124,7 @@ spec:
               command:
                 - /bin/sh
                 - -c
-                - exec pg_isready -U "admin" -d "dbname=db1" -h 127.0.0.1 -p 5432
+                - exec pg_isready -U "root" -d "dbname=db1" -h 127.0.0.1 -p 5432
           readinessProbe:
             failureThreshold: 6
             initialDelaySeconds: 5
@@ -138,7 +138,7 @@ spec:
                 - -e
                 
                 - |
-                  exec pg_isready -U "admin" -d "dbname=db1" -h 127.0.0.1 -p 5432
+                  exec pg_isready -U "root" -d "dbname=db1" -h 127.0.0.1 -p 5432
                   [ -f /opt/bitnami/postgresql/tmp/.initialized ] || [ -f /bitnami/postgresql/.initialized ]
           resources:
             limits: {}
